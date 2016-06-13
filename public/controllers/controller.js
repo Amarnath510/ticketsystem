@@ -79,6 +79,7 @@ myApp.controller('MainCtrl', ['$scope', '$http', '$location', 'DataSrv', functio
 
 
 myApp.controller('LogTicketCtrl', ['$scope', '$http', function($scope, $http) {
+	// To check git changes.
 	var record = new Object();
 	record.cusName = '';
 	record.comment = '';
