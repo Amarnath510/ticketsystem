@@ -79,8 +79,6 @@ myApp.controller('MainCtrl', ['$scope', '$http', '$location', 'DataSrv', functio
 
 
 myApp.controller('LogTicketCtrl', ['$scope', '$http', function($scope, $http) {
-	// console.log('In Log Controller');
-
 	var record = new Object();
 	record.cusName = '';
 	record.comment = '';
