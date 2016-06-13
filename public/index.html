@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<base href="/">
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<title>Ticket System</title>
+	</head>
+<body>
+	
+	<nav class="navbar navbar-default navbar-custom" ng-controller="MainCtrl">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="" ng-click='gotoUrl("/logticket")' style="font-size: 24px;">Ticket System</a>
+			</div>
+			<ul class="nav navbar-nav navbar-right">
+				<li ng-class='{"feature-active" : isActive("/logticket")}'>
+					<a href="" ng-click='gotoUrl("/logticket")'>Log Ticket</a>
+				</li>
+				<li ng-class='{"feature-active" : isActive("/addcomment")}'>
+					<a href="" ng-click='gotoUrl("/addcomment")'>Add Comment to ticket</a>
+				</li>
+				<li ng-class='{"feature-active" : isActive("/changestatus")}'>
+					<a href="" ng-click='gotoUrl("/changestatus")'>Change status of ticket</a>
+				</li> 
+				<li ng-class='{"feature-active" : isActive("/assignto")}'>
+					<a href="" ng-click='gotoUrl("/assignto")'>Assign To</a>
+				</li> 
+				<li ng-class='{"feature-active" : isActive("/viewticket")}'>
+					<a href="" ng-click='gotoUrl("/viewticket")'>View Ticket</a>
+				</li> 
+				<li ng-class='{"feature-active" : isActive("/viewalltickets")}'>
+					<a href="" ng-click='gotoUrl("/viewalltickets")'>View All Tickets</a>
+				</li> 
+			</ul>
+		</div>
+	</nav>
+
+	<div ng-view></div>
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+	<script type="text/javascript" src="libs/angular-route.min.js"></script>
+	<script type="text/javascript" src="controllers/controller.js"></script>
+	<script type="text/javascript" src="libs/jquery.min.js"></script>
+	<script type="text/javascript" src="libs/bootstrap.min.js"></script>
+</body>
+</html>

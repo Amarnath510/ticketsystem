@@ -1,0 +1,125 @@
+<div id="viewTicketId">
+	<div class="container logtckt-font">
+		<div class="row">
+			<div class="col-sm-12 center">
+				<h2>View Ticket - {{record._id}}</h2>
+			</div>
+		</div>	
+		<br>
+		<form id="logTocketForm" name="logTcktForm" ng-submit="login()" method="POST" novalidate>
+			<div class="row center margin-top-20">
+				<div class="col-sm-4">
+					<label for="comment">Customer Name</label>
+				</div>
+				<div class="col-sm-4">
+					<input type="text" 
+							class="form-control" 
+							id="username" 
+							ng-model="record.cusName"
+							placeholder="Enter customer name. Maximum 30 characters"
+							ng-disabled="true"
+							autofocus>
+				</div>
+			</div>	
+
+			<div class="row center margin-top-20">
+				<div class="col-sm-4">
+					<label for="comment">Comment</label>
+				</div>
+				<div class="col-sm-4">
+					<textarea class="form-control noresize" 
+								rows="5" 
+								ng-model="record.comment"
+								placeholder="Enter comments for ticket. Maximum 500 characters.">
+					</textarea>
+					<ul class="list-unstyled">
+						<li ng-repeat="prevComment in record.allcomments track by $index">
+							<textarea class="form-control noresize" 
+									rows="3"
+									ng-disabled = "true">
+									{{prevComment}}
+							</textarea>
+						</li>	
+					</ul>
+					
+				</div>
+			</div>	
+
+			<div class="row center margin-top-20">
+				<div class="col-sm-4">
+					<label for="comment">Created By</label>
+				</div>
+				<div class="col-sm-4">
+					<div class="pull-left" ng-focus="hideMessage()">
+						<div class="dropdown">
+							<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" ng-disabled="true">
+								{{record.createdBy}}
+								<span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu">
+								<li ng-repeat="item in createByItems" class="cursor">
+									<a ng-click="selectDropDown(item, record, 'createdBy')">{{item}}</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row center margin-top-20">
+				<div class="col-sm-4">
+					<label for="comment">Assign To</label>
+				</div>
+				<div class="col-sm-4">
+					<div class="pull-left">
+						<div class="dropdown">
+							<button class="btn btn-primary dropdown-toggle" type="button" 
+											data-toggle="dropdown">
+								{{ record.assignTo }}
+								<span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu">
+								<li ng-repeat="item in assignToItems" class="cursor">
+									<a ng-click="selectDropDown(item, record, 'assignTo')">{{item}}</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>			
+			</div>
+
+			<div class="row center margin-top-20">
+				<div class="col-sm-4">
+					<label for="comment">Status</label>
+				</div>
+				<div class="col-sm-4">
+					<div class="pull-left">
+						<div class="dropdown">
+							<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+								{{ record.status }}
+								<span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu">
+								<li ng-repeat="item in statusItems" class="cursor">
+									<a ng-click="selectDropDown(item, record, 'status')">{{item}}</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>			
+			</div>
+			<br>
+			<div class="row center margin-top-20">
+				<div class="col-sm-12">
+					<button type="button" class="btn btn-success btn-lg" ng-click="update(record)">Update Ticket
+					</button>
+				</div>
+			</div>
+		</form>
+		<br>
+		<div class="center">
+			<span ng-show="showMsg" class="red"><b>{{ statusMessage }}</b></span>		
+		</div>
+		
+	</div>
+</div>	

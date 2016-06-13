@@ -1,0 +1,41 @@
+<div id="addCommentsId">
+	<div class="container logtckt-font">
+		<div class="row">
+			<div class="col-sm-12 center">
+				<h2>{{ header }}</h2>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-sm-2"></div>
+			<div class="col-sm-6 center">
+				<h3>Select Ticket Id from drop down menu</h3>
+			</div>
+			<div class="col-sm-3"></div>
+		</div>
+
+		<div class="row center margin-top-20">
+			<div class="col-sm-6">
+				<div class="center">
+					<div class="dropdown">
+						<div class="dropdown">
+							<button class="btn btn-primary btn-lg dropdown-toggle" type="button" data-toggle="dropdown">
+								{{ record.id }}
+								<span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu">
+								<li ng-repeat="id in ids" class="cursor">
+									<a ng-click="selectDropDown(id, record)">{{id}}</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<button type="button" class="btn btn-success btn-md pull-left" ng-click="searchTicketByMenu(record.id)">Search</button>
+			</div>			
+		</div>
+			
+	</div>
+</div>

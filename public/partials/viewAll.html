@@ -1,0 +1,39 @@
+<div id="viewAllId">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12 center">
+				<h2>View All the Tickets</h2>
+			</div>
+		</div>
+
+		<div class='row'>
+			<div class='col-sm-12'>
+				<div class='panel panel-default'>
+					<table class='table table-bordered' style='font-size: 13px;'>
+						<thead style='background-color: #C2C2C2'>
+							<tr>
+								<th class='text-center col-sm-2'><h5>Ticket Id</h5></th>
+								<th class='text-center col-sm-2'><h5>Customer</h5></th>
+								<th class='text-center col-sm-2'><h5>Comment</h5></th>
+								<th class='text-center col-sm-2'><h5>Created</h5></th>
+								<th class='text-center col-sm-2'><h5>Assigned</h5></th>
+								<th class='text-center col-sm-2'><h5>Status</h5></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="record in records">
+								<td><a ng-click="openInView(record._id)" class="cursor center">{{record._id}}</a></td>
+								<td>{{record.cusName}}</td>
+								<td>{{record.comment}}</td>
+								<td>{{record.createdBy}}</td>
+								<td>{{record.assignTo}}</td>
+								<td>{{record.status}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<!-- <uib-pagination total-items="records.length" ng-model="currentPage" items-per-page="pageSize"></uib-pagination>	 -->
+			</div>
+		</div> <!-- Table row ended-->
+	</div>
+</div>
